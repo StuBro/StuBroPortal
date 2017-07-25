@@ -18,7 +18,4 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/post/{id}', 'PostController@post')->name('post');
-Route::get('/category/{id}', 'CategoryController@category')->name('category');
-Route::get('/item/{id}', 'ItemController@item')->name('item');
-
+Route::get('/admin', 'AdminController@index')->name('admin');
