@@ -3,13 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Eloquent;
 
 class Role extends Model
 {
 
-  public function user()
+   protected $fillable = ['name'];
+
+  public function users()
   {
-    return $this->hasMany('App\User');
+      return $this->belongsToMany(User::class);
   }
 }

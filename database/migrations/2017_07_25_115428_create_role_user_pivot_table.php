@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Roles extends Migration
+class CreateRoleUserPivotTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class Roles extends Migration
      */
     public function up()
     {
-      Schema::create('roles', function (Blueprint $table) {
-         $table->increments('id');
-         $table->string('userId');
-         $table->string('roleName');
-
-     });
+          Schema::create('role_user', function (Blueprint $table) {
+               $table->integer('role_id');
+               $table->integer('user_id');
+               $table->primary(['role_id', 'user_id']);
+           });
     }
 
     /**
@@ -28,6 +27,6 @@ class Roles extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('role_user');
     }
 }

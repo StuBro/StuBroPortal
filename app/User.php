@@ -33,7 +33,7 @@ class User extends Authenticatable
 
 
               public function roles()
-              {
-                return $this->belongTo('App\Role');
-              }
+          {
+          return $this->belongsToMany(Role::class);
+          }
 }
